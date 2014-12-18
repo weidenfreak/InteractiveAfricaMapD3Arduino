@@ -33,7 +33,12 @@
           }
 
           socket.onmessage = function(msg) {
+            console.log(msg.data);
             addMessage("Received: " + msg.data);
+
+            // send a dummy message back to initiate
+            // the onmessage callback again
+            socket.send("next message please!");
           }
         } catch(exception) {
           addMessage("Error: " + exception);
