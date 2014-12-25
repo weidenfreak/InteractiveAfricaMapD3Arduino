@@ -7,10 +7,9 @@
       <h1>WebSockets Chat App</h1>
       <div id="form">
         <button id="disconnect">Disconnect</button>
-        <input type="text" id="message">
         <input type="range" min="1" max="25" value="10" style="width:100%">
       </div>
-      <div id="chat-log"></div>
+      <!--<div id="chat-log"></div>-->
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -39,6 +38,7 @@
             try {
               potentionmeterValue = JSON.parse(msg.data).event;
               console.log(potentionmeterValue);
+              $("input[type=range]").val(potentionmeterValue);
             }
             catch(err){
               //nothing to do here
