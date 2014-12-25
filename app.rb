@@ -14,7 +14,7 @@ EM.run do
 
   @clients = []
 
-  sp = SerialPort.new('/dev/cu.usbmodemfa131', 9600, 8, 1, SerialPort::NONE)
+  sp = SerialPort.new('/dev/cu.usbmodemfd121', 9600, 8, 1, SerialPort::NONE)
 
 
   EM::WebSocket.start(:host => '0.0.0.0', :port => '3001') do |ws|

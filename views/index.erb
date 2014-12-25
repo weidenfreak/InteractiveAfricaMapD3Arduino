@@ -5,17 +5,19 @@
   <body>
     <div class="container">
       <h1>WebSockets Chat App</h1>
-      <div id="chat-log"></div>
       <div id="form">
-        <input type="text" id="message">
         <button id="disconnect">Disconnect</button>
+        <input type="text" id="message">
+        <input type="range" min="1" max="25" value="10" style="width:100%">
       </div>
+      <div id="chat-log"></div>
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
       // where our WebSockets logic will go later
       var socket, host;
+      var potentionmeterValue;
       host = "ws://localhost:3001";
 
       function connect() {
@@ -33,8 +35,16 @@
           }
 
           socket.onmessage = function(msg) {
-            console.log(msg.data);
-            addMessage("Received: " + msg.data);
+            //hack: because of initial "Connected to ./" info msg.data is not always a JSON object
+            try {
+              potentionmeterValue = JSON.parse(msg.data).event;
+              console.log(potentionmeterValue);
+            }
+            catch(err){
+              //nothing to do here
+            }
+
+            addMessage("Received: " + potentionmeterValue);
 
             // send a dummy message back to initiate
             // the onmessage callback again
