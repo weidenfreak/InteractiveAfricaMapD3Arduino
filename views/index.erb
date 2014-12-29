@@ -3,128 +3,22 @@
   <head>
   </head>
   <meta charset="utf-8">
-  <style>
-  .subunit.ETH { fill: #DE0; }
-  /* CSS goes here. */
-
-  </style>
   <body>
+    <link href="stylesheets/styles.css" type="text/css" rel="stylesheet" />
     <div class="container">
-      <h1>Water Resources in Ethiopia</h1>
+      <h1>Africa</h1>
+      <h2>Improved sanitation facilities (% of population with access)</h2>
       <div id="form">
         <button id="disconnect">Disconnect</button>
         <div id="map"></div>
         <input type="range" min="1" max="25" value="10" style="width:100%">
       </div>
-      <!--<div id="chat-log"></div>-->
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
-
-    <script>
-      // where our WebSockets logic will go later
-      var socket, host;
-      var potentionmeterValue;
-      host = "ws://localhost:3001";
-
-      function connect() {
-        try {
-          socket = new WebSocket(host);
-
-          addMessage("Socket State: " + socket.readyState);
-
-          socket.onopen = function() {
-            addMessage("Socket Status: " + socket.readyState + " (open)");
-          }
-
-          socket.onclose = function() {
-            addMessage("Socket Status: " + socket.readyState + " (closed)");
-          }
-
-          socket.onmessage = function(msg) {
-            //hack: because of initial "Connected to ./" info msg.data is not always a JSON object
-            try {
-              potentionmeterValue = JSON.parse(msg.data).event;
-              console.log(potentionmeterValue);
-              $("input[type=range]").val(potentionmeterValue);
-            }
-            catch(err){
-              //nothing to do here
-            }
-
-            addMessage("Received: " + potentionmeterValue);
-
-            // send a dummy message back to initiate
-            // the onmessage callback again
-            socket.send("next message please!");
-          }
-        } catch(exception) {
-          addMessage("Error: " + exception);
-        }
-      }
-
-      function addMessage(msg) {
-        $("#chat-log").append("<p>" + msg + "</p>");
-      }
-
-      function send() {
-        var text = $("#message").val();
-        if (text == '') {
-          addMessage("Please Enter a Message");
-          return;
-        }
-
-        try {
-          socket.send(text);
-          addMessage("Sent: " + text)
-        } catch(exception) {
-          addMessage("Failed To Send")
-        }
-
-        $("#message").val('');
-      }
-
-      $(function() {
-        connect();
-      });
-
-      $('#message').keypress(function(event) {
-        if (event.keyCode == '13') { send(); }
-      });
-
-      $("#disconnect").click(function() {
-        socket.close()
-      });
-
-      //D3 Charts stuff
-      var width = 960,
-      height = 600;
-
-      var projection = d3.geo.albers()
-      .center([0, 8.5])
-      .rotate([-40.4, 0])
-      .parallels([20, 50])
-      .scale(2000)
-      .translate([width / 2, height / 2]);;
-
-      var path = d3.geo.path()
-      .projection(projection);
-
-      var svg = d3.select("#map").append("svg")
-      .attr("width", width)
-      .attr("height", height);
-
-      d3.json("ethiopia.json", function(error, ethiopia) {
-        var subunits = topojson.feature(ethiopia, ethiopia.objects.subunits);
-
-        svg.selectAll(".subunit")
-        .data(subunits.features)
-        .enter().append("path")
-        .attr("class", function(d) { return "subunit " + d.id; })
-        .attr("d", path);
-      });
-    </script>
+    <script src="javascript/websocket.js"></script>
+    <script src="javascript/custom_map.js"></script>
   </body>
 </html>
