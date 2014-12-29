@@ -18,7 +18,7 @@ function connect() {
     }
 
     socket.onmessage = function(msg) {
-      //hack: because of initial "Connected to ./" info msg.data is not always a JSON object
+      //hack: because of initial "Connected to ./" info, msg.data is not always a JSON object
       try {
         //set slider according to potentiometer input (msg.data)
         var year = JSON.parse(msg.data).event;

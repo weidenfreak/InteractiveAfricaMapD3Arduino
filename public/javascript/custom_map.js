@@ -46,12 +46,9 @@ var color = d3.scale.quantize()
   // water or sanitation for their inhabitants might not provide a 100 percent
   color.domain([0, 100]);
 
-  var projection = d3.geo.albers()
-  .center([0, 8.5])
-  .rotate([-40.4, 0])
-  .parallels([20, 50])
-  .scale(2000)
-  .translate([widthMap / 2, heightMap / 2]);;
+  var projection = d3.geo.mercator()
+  .scale(400)
+  .center([20, 8.5]);
 
   var path = d3.geo.path()
   .projection(projection);
@@ -60,23 +57,21 @@ var color = d3.scale.quantize()
   .attr("width", widthMap)
   .attr("height", heightMap);
 
-  d3.csv("country_data/ethiopia.csv", function(data) {
+  d3.csv("country_data/water_access_rural.csv", function(data) {
 
-    //d3.json("subunits.json", function(error, ethiopia) {
-    //  var subunits = topojson.feature(ethiopia, ethiopia.objects.subunits);
-    d3.json("country_data/subunits.json", function(json) {
-      //var subunits = json.objects.subunits;
+    d3.json("country_data/countries.json", function(json) {
+
       //Merge the ag. data and GeoJSON
       //Loop through once for each ag. data value
-
       for (var i = 0; i < data.length; i++) {
         //Grab state name
-        var dataState = data[i].state;
+        var dataState = data[i]["Country Code"];
         //Grab data value, and convert from string to float
         var dataValue = data[i];
         //Find the corresponding state inside the GeoJSON
         for (var j = 0; j < json.features.length; j++) {
-          var jsonState = json.features[j].properties.NAME;
+          //ADM03_A3 is ISOCode 3 for countries
+          var jsonState = json.features[j].properties.ADM0_A3;
           if (dataState == jsonState) {
             //Copy the data value into the JSON
             json.features[j].properties.value = dataValue;
@@ -109,12 +104,15 @@ var color = d3.scale.quantize()
     })
   );
 
-  // find color for value of a certain year
+  // find color for value of year
   function fillColor(d, colorValue) {
-    var value = parseFloat(d.properties.value[colorValue]);
-    if (value) {
+    // quick fix. this is how to not use try and catch...
+    try {
+      var value = parseFloat(d.properties.value[colorValue]);
       return color(value);
-    } else {
+    } catch(err) {
+      //console.log("Country: " + d.properties.ADM0_A3 + " Year: " + colorValue);
+      console.log("Error fillColor: " + err);
       return "#ccc";
     }
   }
