@@ -20,8 +20,16 @@ function connect() {
     socket.onmessage = function(msg) {
       //hack: because of initial "Connected to ./" info msg.data is not always a JSON object
       try {
-        potentionmeterValue = JSON.parse(msg.data).event;
-        $("input[type=range]").val(potentionmeterValue);
+        //set slider according to potentiometer input (msg.data)
+        var year = JSON.parse(msg.data).event;
+        $("#yearRange").val(year);
+
+        // color map on websocket input (might need to refactor this call somehow)
+        svg.selectAll("path")
+          .transition()
+          .style("fill", function(d) {
+            return fillColor(d, year);
+        });
       }
       catch(err){
         //nothing to do here

@@ -1,1 +1,8 @@
-.subunit.ETH { fill: #DE0; }
+.x.axis path, .x.axis line{
+  fill: none; stroke: black;
+}
+
+.slider {
+  margin-left:15px;
+  width: 852px;
+}
