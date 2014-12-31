@@ -18,24 +18,18 @@ function connect() {
     }
 
     socket.onmessage = function(msg) {
-      //hack: because of initial "Connected to ./" info, msg.data is not always a JSON object
+      //set slider according to potentiometer input (msg.data)
       try {
-        //set slider according to potentiometer input (msg.data)
         var year = JSON.parse(msg.data).event;
-        $("#yearRange").val(year);
-
-        // color map on websocket input (might need to refactor this call somehow)
-        svg.selectAll("path")
-          .transition()
-          .style("fill", function(d) {
-            return fillColor(d, year);
-        });
-      }
-      catch(err){
-        //nothing to do here
+      } catch(err) {
+        console.log(err);
+        var year = "";
       }
 
-      addMessage("Received: " + potentionmeterValue);
+      updateMap(year);
+      $(".slider").val(year);
+      
+      addMessage("Received: " + year);
 
       // send a dummy message back to initiate
       // the onmessage callback again

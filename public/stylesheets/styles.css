@@ -1,8 +1,52 @@
+body {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  margin:50px 0px; padding:0px;
+}
+
+h1, h2, h3, h4, h5 {
+  text-align: center;
+}
+
+main {
+  width: 900px;
+  margin: 0px auto;
+}
+
 .x.axis path, .x.axis line{
-  fill: none; stroke: black;
+  fill: none;
+  stroke: black;
 }
 
 .slider {
-  margin-left:15px;
+  margin-left: 13px;
   width: 852px;
+}
+
+.scale {
+  height: 30px;
+  margin-bottom: 30px;
+  font-size: 13px;
+}
+
+.countries {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+
+.currentYear {
+  font-size: 25px;
+}
+
+.legend {
+  font-size: 12px;
+}
+
+rect {
+  stroke-width: 2;
+}
+
+hr {
+  margin-top: 30px;
 }
