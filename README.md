@@ -5,7 +5,7 @@ A prototype to visualise data from the Worldbank, this time using an Arduino, Si
 
 Initially based on [eventmachine-websockets-demo](https://github.com/stewart/eventmachine-websockets-demo).
 
-See  for standalone version without Arduino and Websockets.
+See [InteractiveAfricaMapD3](https://github.com/weidenfreak/InteractiveAfricaMapD3) for standalone version without Arduino and Websockets.
 
 Setup
 ------
