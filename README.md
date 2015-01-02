@@ -10,8 +10,8 @@ See [InteractiveAfricaMapD3](https://github.com/weidenfreak/InteractiveAfricaMap
 Setup
 ------
 * Connect your Arduino via USB (no Ethernet Shield needed)
-* Set up a single potentiometer input on your breadboard
-* Load Arduino [potentiometer Code](https://github.com/weidenfreak/InteractiveAfricaMapD3Arduino/blob/master/Arduino/Potentiometer/Potentiometer.ino) on your Arduino.
+* Set up a single potentiometer input on your breadboard. Like here:  [Potentiometer setup](http://www.arduino.cc/en/tutorial/potentiometer)
+* Load Arduino [potentiometer code](https://github.com/weidenfreak/InteractiveAfricaMapD3Arduino/blob/master/Arduino/Potentiometer/Potentiometer.ino) on your Arduino.
 * Start the Sinatra app: 
 ```
 ruby app.rb
