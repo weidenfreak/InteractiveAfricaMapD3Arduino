@@ -14,7 +14,7 @@ Setup
 * Load [potentiometer code](https://github.com/weidenfreak/InteractiveAfricaMapD3Arduino/blob/master/Arduino/Potentiometer/Potentiometer.ino) on your Arduino.
 * Start the Sinatra app: 
 ```
-ruby app.rb
+> ruby app.rb
 ```
 
 ![](https://github.com/weidenfreak/InteractiveAfricaMapD3Arduino/arduino_worldbank.jpg)
