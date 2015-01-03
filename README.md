@@ -17,5 +17,4 @@ Setup
 > ruby app.rb
 ```
 
-![](https://github.com/weidenfreak/InteractiveAfricaMapD3Arduino/arduino_worldbank.jpg)
 
