@@ -1,7 +1,7 @@
 Interactive Africa Map D3 Arduino
 =============================
 
-A prototype to visualise data from the Worldbank, this time using an Arduino, Sinatra and WebSockets. Instead of just using normal inputs like mouse and keyboard, the slider in this application reacts to movements from an Arduino potentiometer.
+A prototype to visualise data from the World Bank, this time using an Arduino, Sinatra and WebSockets. Instead of just using normal inputs like mouse and keyboard, the slider in this application reacts to movements from an Arduino potentiometer.
 
 Initially based on [eventmachine-websockets-demo](https://github.com/stewart/eventmachine-websockets-demo) and [Web Interfacing with Arduino](http://viget.com/extend/web-interfacing-with-arduino).
 
