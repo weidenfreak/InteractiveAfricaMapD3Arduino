@@ -6,7 +6,7 @@ This is a prototype which was built for a university assignment. The task was to
 I'm using an Arduino, a Sinatra Ruby app with WebSockets to connect to the Arduino and D3.js to visualise the map.
 Instead of using normal inputs like mouse and keyboard, the slider in this application reacts to movements from an Arduino potentiometer.
 
-See [Youtube](https://www.youtube.com/watch?v=2jrZv-j7q3I) for a very simple video demonstration.
+See [Youtube](https://www.youtube.com/watch?v=qbfOEj78rck) for a very simple video demonstration.
 
 See [InteractiveAfricaMapD3](https://github.com/weidenfreak/InteractiveAfricaMapD3) for a standalone version without Arduino and Websockets.
 
