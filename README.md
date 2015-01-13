@@ -7,8 +7,7 @@ I'm using an Arduino, a Sinatra Ruby app with WebSockets to connect to the Ardui
 Instead of using normal inputs like mouse and keyboard, the slider in this application reacts to movements from an Arduino potentiometer.
 
 See [Youtube](https://www.youtube.com/watch?v=qbfOEj78rck) for a very simple video demonstration.
-
-See [InteractiveAfricaMapD3](https://github.com/weidenfreak/InteractiveAfricaMapD3) for a standalone version without Arduino and Websockets.
+And a [live version](http://weidenfreak.github.io/InteractiveAfricaMapD3/) (without Arduino support). (Optimised for Google Chrome only)
 
 Initially based on [eventmachine-websockets-demo](https://github.com/stewart/eventmachine-websockets-demo) and [Web Interfacing with Arduino](http://viget.com/extend/web-interfacing-with-arduino).
 
