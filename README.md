@@ -5,6 +5,8 @@ A prototype to visualise data from the World Bank, this time using an Arduino, S
 
 Initially based on [eventmachine-websockets-demo](https://github.com/stewart/eventmachine-websockets-demo) and [Web Interfacing with Arduino](http://viget.com/extend/web-interfacing-with-arduino).
 
+See [Youtube](https://www.youtube.com/watch?v=2jrZv-j7q3I) for a very simple video demonstration.
+
 See [InteractiveAfricaMapD3](https://github.com/weidenfreak/InteractiveAfricaMapD3) for a standalone version without Arduino and Websockets.
 
 Setup
