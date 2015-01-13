@@ -12,6 +12,7 @@ Setup
 * Set up a single potentiometer input on your breadboard. Like here:  [Potentiometer setup](http://www.arduino.cc/en/tutorial/potentiometer)
 * Connect your Arduino via USB (no Ethernet Shield needed)
 * Load [potentiometer code](https://github.com/weidenfreak/InteractiveAfricaMapD3Arduino/blob/master/Arduino/Potentiometer/Potentiometer.ino) on your Arduino.
+* You might have to change the address of the serial port in app.rb. Have a look at your port in the Arduino environment to see which one you're using (Tools -> Port).
 * Start the Sinatra app: 
 ```
 > ruby app.rb
