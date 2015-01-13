@@ -3,7 +3,7 @@ Interactive Africa Map D3 Arduino
 
 This is a prototype which was built for a university assignment. The task was to build a prototype that makes use of data from the [World Bank](http://worldbank.org/) and concepts of embodied interaction.
 
-I'm using an Arduino, a Sinatra Ruby app with WebSockets to connect to the Arduino and D3.js to visualise the map.
+I'm using an Arduino, a Sinatra Ruby app with WebSockets to connect to the Arduino, and D3.js to visualise the map.
 Instead of using normal inputs like mouse and keyboard, the slider in this application reacts to movements from an Arduino potentiometer.
 
 See [Youtube](https://www.youtube.com/watch?v=qbfOEj78rck) for a very simple video demonstration.
